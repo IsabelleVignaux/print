@@ -33,8 +33,7 @@ leftArrow.addEventListener("click", () => {
 });
 rightArrow.addEventListener("click", () => {
 	//console.log("clic droit");
-	currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-	updateSlide(currentSlideIndex);
+	nextImage();
 });
 
 // Sélection de l'image du carrousel et du conteneur de puces
@@ -92,3 +91,14 @@ dots.forEach((dot, index) => {
 		updateSlide(currentSlideIndex);
 	});
 });
+
+// Fonction pour passer à l'image suivante dans le carrousel
+function nextImage() {
+	currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+	updateSlide(currentSlideIndex);
+}
+  
+// Mise en place d'un intervalle de 5 secondes
+// pour le défilement du carrousel
+// Appel de la fonction nextImage pour affichage image suivante
+var intervalId = setInterval(nextImage, 5000);
